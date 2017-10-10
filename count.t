@@ -1,0 +1,5 @@
+for i : 0 .. 12
+    put i, ", " ..
+end for
+
+
