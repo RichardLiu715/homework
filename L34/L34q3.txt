@@ -1,0 +1,25 @@
+function ispal (word : string) : boolean
+var newword : string :=""
+for decreasing i : length(word)..1
+   newword+=word(i)
+   if newword = word then
+        result true
+    else
+        result false
+    end if
+end ispal
+
+var word : string
+var haspal : boolean := false
+
+put "Please enter a word: " ..
+get word : *
+
+if ispal(word(i)) then
+    haspal := true
+end if
+if haspal then
+    put "Your word is a palindrome."
+else
+    put "Your word is not a palindrome."
+end if

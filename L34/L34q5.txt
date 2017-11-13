@@ -1,0 +1,14 @@
+function glue(word1 : string, word2 : string) : string
+var newword : string :=""
+    newword := word1+=word2
+result newword
+end glue
+
+var word1 : string
+var word2 : string
+
+put "Enter 2 words "..
+get word1
+get word2
+
+put glue(word1, word2)

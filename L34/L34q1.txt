@@ -1,0 +1,27 @@
+function isS (letter : char) : boolean
+    if letter = "s" then
+        result true
+    else
+        result false
+    end if
+end isS
+
+
+
+var word : string
+var hasS : boolean := false
+
+put "Please enter a word: " ..
+get word : *
+
+for i : 1 .. length(word)
+    if isS(word(i)) then
+        hasS := true
+    end if
+end for
+
+if hasS then
+    put "Your word contains an S."
+else
+    put "Your word does not contain an S."
+end if

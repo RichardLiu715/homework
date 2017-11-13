@@ -1,0 +1,12 @@
+function double(number : real) : real    %real can support larger numbers
+loop
+    number*2
+    exit when number >= 1000000
+end double
+
+var number1 : real
+
+put "Please enter a positive integer: " ..
+get number1
+
+put double(number1) 
