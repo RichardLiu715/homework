@@ -2,6 +2,7 @@ function double(number : real) : real    %real can support larger numbers
 loop
     number*2
     exit when number >= 1000000
+    end loop
 end double
 
 var number1 : real
