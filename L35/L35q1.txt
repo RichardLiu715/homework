@@ -1,0 +1,7 @@
+procedure wordnum(word : string, n : int)
+  for i : 1..n
+    put word," "
+  end for
+end wordnum
+
+wordnum(hello, 5)
