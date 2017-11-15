@@ -6,7 +6,7 @@ end stars
 
 stars(7) % a)
 
-var num : int
+var num : int % b)
 put "How many lines would you like?"
 get num
-put stars(num)
+stars(num)
