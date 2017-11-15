@@ -4,4 +4,4 @@ procedure wordnum(word : string, n : int)
   end for
 end wordnum
 
-wordnum(hello, 5)
+wordnum("hello", 5)
