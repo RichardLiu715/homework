@@ -5,5 +5,8 @@ procedure stars(line_number : int)
 end stars
 
 stars(7) % a)
+
+var num : int
 put "How many lines would you like?"
-get stars(line_humber)
+get num
+put stars(num)
