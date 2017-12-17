@@ -7,6 +7,8 @@ var homebutton : int
 var infobutton1 : int
 var nextbutton : int
 var backbutton : int
+var nextbutton2 : int
+var backbutton2 : int
 var infobutton2 : int
 var infobutton3 : int
 var infobutton4 : int
@@ -47,6 +49,8 @@ procedure B1
     GUI.Show (quitbutton)
     GUI.Show (nextbutton)
     GUI.Hide (backbutton)
+    GUI.Hide (nextbutton2)
+    GUI.Hide (backbutton2)
     GUI.Refresh
 end B1
 
@@ -70,6 +74,9 @@ procedure next
     GUI.SetPosition (quitbutton, 300, 30)
     GUI.SetPosition (homebutton, 400, 30)
     GUI.Show (backbutton)
+    GUI.Hide (backbutton2)
+    GUI.Show (nextbutton2)
+    GUI.Hide (nextbutton)
     GUI.Show (homebutton)
     GUI.Show (quitbutton)
     GUI.Hide (infobutton1)
@@ -77,9 +84,26 @@ procedure next
     GUI.Hide (infobutton3)
     GUI.Hide (infobutton4)
     GUI.Hide (infobutton5)
-    GUI.Hide (nextbutton)
     GUI.Refresh
 end next
+
+procedure next2
+    cls
+    GUI.SetPosition (quitbutton, 300, 30)
+    GUI.SetPosition (homebutton, 400, 30)
+    GUI.Hide (backbutton)
+    GUI.Show (backbutton2)
+    GUI.Hide (nextbutton2)
+    GUI.Hide (nextbutton)
+    GUI.Show (homebutton)
+    GUI.Show (quitbutton)
+    GUI.Hide (infobutton1)
+    GUI.Hide (infobutton2)
+    GUI.Hide (infobutton3)
+    GUI.Hide (infobutton4)
+    GUI.Hide (infobutton5)
+    GUI.Refresh
+end next2
 
 procedure B2
 
@@ -107,6 +131,8 @@ procedure home
     GUI.Show (homebutton)
     GUI.Hide (backbutton)
     GUI.Hide (nextbutton)
+    GUI.Hide (backbutton2)
+    GUI.Hide (nextbutton2)
     font1 := Font.New ("serif:30")
     Font.Draw ("GRAPHICS DESGINER", 120, 300, font1, black)
     Font.Free (font1)
@@ -121,9 +147,13 @@ infobutton4 := GUI.CreateButton (390, 30, 140, "Conestoga College", B4)
 infobutton5 := GUI.CreateButton (530, 30, 80, "Sources", B5)
 homebutton := GUI.CreateButton (300, 365, 75, "Home", home)
 nextbutton := GUI.CreateButton (100, 30, 80, "Next", next)
+nextbutton2 := GUI.CreateButton (200, 30, 80, "Next", next2)
 backbutton := GUI.CreateButton (100, 30, 80, "Back", B1)
+backbutton2 := GUI.CreateButton (100, 30, 80, "Back", next)
 GUI.Hide (nextbutton)
 GUI.Hide (backbutton)
+GUI.Hide (nextbutton2)
+GUI.Hide (backbutton2)
 GUI.Show (quitbutton)
 GUI.Show (infobutton1)
 GUI.Show (infobutton2)
