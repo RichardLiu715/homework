@@ -3,6 +3,9 @@ import GUI
 var font1 : int
 var font2 : int
 var font3 : int
+var font4 : int
+var font5 : int
+var font6 : int
 var quitbutton : int
 var homebutton : int
 var infobutton1 : int
@@ -12,6 +15,8 @@ var nextbutton2 : int
 var backbutton2 : int
 var nextbutton3 : int
 var backbutton3 : int
+var nextbuttonh1 : int
+var backbuttonh1 : int
 var infobutton2 : int
 var infobutton3 : int
 var infobutton4 : int
@@ -42,7 +47,6 @@ procedure B1
     Font.Draw ("Job Description:", 50, 350, font2, black)
     Font.Free (font2)
     GUI.SetPosition (quitbutton, 300, 30)
-    GUI.SetPosition (homebutton, 400, 30)
     GUI.Hide (infobutton1)
     GUI.Hide (infobutton2)
     GUI.Hide (infobutton3)
@@ -56,6 +60,8 @@ procedure B1
     GUI.Hide (backbutton2)
     GUI.Hide (nextbutton3)
     GUI.Hide (backbutton3)
+    GUI.Hide (backbuttonh1)
+    GUI.Hide (nextbuttonh1)
     GUI.Refresh
 end B1
 
@@ -83,6 +89,8 @@ procedure next
     GUI.Hide (nextbutton)
     GUI.Hide (nextbutton3)
     GUI.Hide (backbutton3)
+    GUI.Hide (backbuttonh1)
+    GUI.Hide (nextbuttonh1)
     GUI.Show (homebutton)
     GUI.Show (quitbutton)
     GUI.Hide (infobutton1)
@@ -91,6 +99,9 @@ procedure next
     GUI.Hide (infobutton4)
     GUI.Hide (infobutton5)
     GUI.Refresh
+    font4 := Font.New ("serif:20")
+    Font.Draw ("More about Graphics Design", 120, 377, font4, black)
+    Font.Free (font4)
 end next
 
 procedure next2
@@ -132,6 +143,8 @@ procedure next2
     GUI.Hide (infobutton3)
     GUI.Hide (infobutton4)
     GUI.Hide (infobutton5)
+    GUI.Hide (backbuttonh1)
+    GUI.Hide (nextbuttonh1)
     GUI.Refresh
     font3 := Font.New ("serif:25")
     Font.Draw ("Essential Tools", 120, 350, font3, black)
@@ -145,12 +158,22 @@ procedure next3
     var ctr : int := 0
     var tmp : string
     open : inp, "jobdes4.txt", get
+    put ""
+    put ""
+    put ""
     loop
         exit when eof (inp)
         ctr += 1
+        if ctr = 54 or ctr = 64 or ctr = 76 or ctr = 89 or ctr = 100 or ctr = 133 or ctr = 144 then
+            put " "
+        end if
+        if ctr = 81 or ctr = 107 or ctr = 121 or ctr = 151 then
+            put " "
+        end if
         get : inp, tmp
         put tmp, " " ..
     end loop
+
     GUI.SetPosition (quitbutton, 300, 30)
     GUI.Hide (backbutton)
     GUI.Hide (backbutton2)
@@ -165,7 +188,12 @@ procedure next3
     GUI.Hide (infobutton3)
     GUI.Hide (infobutton4)
     GUI.Hide (infobutton5)
+    GUI.Hide (backbuttonh1)
+    GUI.Hide (nextbuttonh1)
     GUI.Refresh
+    font5 := Font.New ("serif:25")
+    Font.Draw ("Skills and Qualities", 120, 370, font5, black)
+    Font.Free (font5)
 end next3
 
 procedure B2
@@ -176,9 +204,85 @@ procedure B3
 end B3
 
 procedure B4
+    cls
+    GUI.SetPosition (quitbutton, 300, 30)
+    GUI.Hide (backbutton)
+    GUI.Hide (backbutton2)
+    GUI.Hide (nextbutton3)
+    GUI.Hide (backbutton3)
+    GUI.Hide (nextbutton2)
+    GUI.Hide (nextbutton)
+    GUI.Show (homebutton)
+    GUI.Show (quitbutton)
+    GUI.Hide (infobutton1)
+    GUI.Hide (infobutton2)
+    GUI.Hide (infobutton3)
+    GUI.Hide (infobutton4)
+    GUI.Hide (infobutton5)
+    GUI.Hide (backbuttonh1)
+    GUI.Show (nextbuttonh1)
+    GUI.Refresh
 end B4
 
+procedure nextH
+    cls
+    GUI.SetPosition (quitbutton, 300, 30)
+    GUI.Hide (backbutton)
+    GUI.Hide (backbutton2)
+    GUI.Hide (nextbutton3)
+    GUI.Hide (backbutton3)
+    GUI.Hide (nextbutton2)
+    GUI.Hide (nextbutton)
+    GUI.Show (homebutton)
+    GUI.Show (quitbutton)
+    GUI.Hide (infobutton1)
+    GUI.Hide (infobutton2)
+    GUI.Hide (infobutton3)
+    GUI.Hide (infobutton4)
+    GUI.Hide (infobutton5)
+    GUI.Show (backbuttonh1)
+    GUI.Hide (nextbuttonh1)
+    GUI.Refresh
+end nextH
+
 procedure B5
+    cls
+    var inp : int
+    var ctr : int := 0
+    var tmp : string
+    open : inp, "sources.txt", get
+    put ""
+    put ""
+    put ""
+    put ""
+    put ""
+    put ""
+    loop
+        exit when eof (inp)
+        ctr += 1
+        get : inp, tmp
+        put tmp
+    end loop
+    GUI.SetPosition (quitbutton, 300, 30)
+    GUI.Hide (backbutton)
+    GUI.Hide (backbutton2)
+    GUI.Hide (nextbutton3)
+    GUI.Hide (backbutton3)
+    GUI.Hide (nextbutton2)
+    GUI.Hide (nextbutton)
+    GUI.Hide (backbuttonh1)
+    GUI.Hide (nextbuttonh1)
+    GUI.Show (homebutton)
+    GUI.Show (quitbutton)
+    GUI.Hide (infobutton1)
+    GUI.Hide (infobutton2)
+    GUI.Hide (infobutton3)
+    GUI.Hide (infobutton4)
+    GUI.Hide (infobutton5)
+    GUI.Refresh
+    font6 := Font.New ("serif:35")
+    Font.Draw ("Sources", 120, 350, font6, black)
+    Font.Free (font6)
 end B5
 
 procedure home
@@ -197,6 +301,8 @@ procedure home
     GUI.Hide (nextbutton2)
     GUI.Hide (backbutton3)
     GUI.Hide (nextbutton3)
+    GUI.Hide (backbuttonh1)
+    GUI.Hide (nextbuttonh1)
     Pic.Draw (pic, -100, -100, picCopy)
     GUI.Refresh
     font1 := Font.New ("serif:30")
@@ -207,8 +313,8 @@ end home
 quitbutton := GUI.CreateButton (575, 365, 50, "Quit", GUI.Quit)
 infobutton1 := GUI.CreateButton (50, 30, 80, "About", B1)
 infobutton2 := GUI.CreateButton (130, 30, 100, "Full Sail University", B2)
-infobutton3 := GUI.CreateButton (260, 30, 100, "Rasmussen College", B3)
-infobutton4 := GUI.CreateButton (390, 30, 140, "Conestoga College", B4)
+infobutton3 := GUI.CreateButton (260, 30, 130, "Seneca College", B3)
+infobutton4 := GUI.CreateButton (390, 30, 140, "Herzing College", B4)
 infobutton5 := GUI.CreateButton (530, 30, 80, "Sources", B5)
 homebutton := GUI.CreateButton (400, 30, 75, "Home", home)
 nextbutton := GUI.CreateButton (100, 30, 80, "Next", next)
@@ -217,12 +323,16 @@ backbutton := GUI.CreateButton (100, 30, 80, "Back", B1)
 backbutton2 := GUI.CreateButton (100, 30, 80, "Back", next)
 nextbutton3 := GUI.CreateButton (200, 30, 80, "Next", next3)
 backbutton3 := GUI.CreateButton (100, 30, 80, "Back", next2)
+nextbuttonh1 := GUI.CreateButton (200, 30, 80, "Next", nextH)
+backbuttonh1 := GUI.CreateButton (100, 30, 80, "Back", B4)
 GUI.Hide (nextbutton)
 GUI.Hide (backbutton)
 GUI.Hide (nextbutton2)
 GUI.Hide (backbutton2)
 GUI.Hide (nextbutton3)
 GUI.Hide (backbutton3)
+GUI.Hide (backbuttonh1)
+GUI.Hide (nextbuttonh1)
 GUI.Show (quitbutton)
 GUI.Show (infobutton1)
 GUI.Show (infobutton2)
