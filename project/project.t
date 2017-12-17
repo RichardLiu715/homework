@@ -47,6 +47,7 @@ procedure B1
     GUI.Show (quitbutton)
     GUI.Show (nextbutton)
     GUI.Hide (backbutton)
+    GUI.Refresh
 end B1
 
 procedure next
@@ -77,6 +78,7 @@ procedure next
     GUI.Hide (infobutton4)
     GUI.Hide (infobutton5)
     GUI.Hide (nextbutton)
+    GUI.Refresh
 end next
 
 procedure B2
@@ -94,7 +96,6 @@ end B5
 
 procedure home
     cls
-    Pic.Draw (pic, -100, -100, picCopy)
     GUI.SetPosition (quitbutton, 575, 365)
     GUI.SetPosition (homebutton, 300, 365)
     GUI.Show (quitbutton)
@@ -104,11 +105,14 @@ procedure home
     GUI.Show (infobutton4)
     GUI.Show (infobutton5)
     GUI.Show (homebutton)
+    GUI.Hide (backbutton)
+    GUI.Hide (nextbutton)
     font1 := Font.New ("serif:30")
     Font.Draw ("GRAPHICS DESGINER", 120, 300, font1, black)
     Font.Free (font1)
+    Pic.Draw (pic, -100, -100, picCopy)
+    GUI.Refresh
 end home
-Pic.Draw (pic, -100, -100, picCopy)
 quitbutton := GUI.CreateButton (575, 365, 50, "Quit", GUI.Quit)
 infobutton1 := GUI.CreateButton (50, 30, 80, "About", B1)
 infobutton2 := GUI.CreateButton (130, 30, 100, "Full Sail University", B2)
@@ -117,7 +121,7 @@ infobutton4 := GUI.CreateButton (390, 30, 140, "Conestoga College", B4)
 infobutton5 := GUI.CreateButton (530, 30, 80, "Sources", B5)
 homebutton := GUI.CreateButton (300, 365, 75, "Home", home)
 nextbutton := GUI.CreateButton (100, 30, 80, "Next", next)
-backbutton := GUI.CreateButton (100, 55, 80, "Back", B1)
+backbutton := GUI.CreateButton (100, 30, 80, "Back", B1)
 GUI.Hide (nextbutton)
 GUI.Hide (backbutton)
 GUI.Show (quitbutton)
@@ -130,7 +134,8 @@ GUI.Show (homebutton)
 font1 := Font.New ("serif:30")
 Font.Draw ("GRAPHICS DESGINER", 120, 300, font1, black)
 Font.Free (font1)
-
+Pic.Draw (pic, -100, -100, picCopy)
+GUI.Refresh
 
 loop
     exit when GUI.ProcessEvent
