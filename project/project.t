@@ -2,6 +2,7 @@ import GUI
 
 var font1 : int
 var font2 : int
+var font3 : int
 var quitbutton : int
 var homebutton : int
 var infobutton1 : int
@@ -9,6 +10,8 @@ var nextbutton : int
 var backbutton : int
 var nextbutton2 : int
 var backbutton2 : int
+var nextbutton3 : int
+var backbutton3 : int
 var infobutton2 : int
 var infobutton3 : int
 var infobutton4 : int
@@ -51,6 +54,8 @@ procedure B1
     GUI.Hide (backbutton)
     GUI.Hide (nextbutton2)
     GUI.Hide (backbutton2)
+    GUI.Hide (nextbutton3)
+    GUI.Hide (backbutton3)
     GUI.Refresh
 end B1
 
@@ -72,11 +77,12 @@ procedure next
         put tmp, " " ..
     end loop
     GUI.SetPosition (quitbutton, 300, 30)
-    GUI.SetPosition (homebutton, 400, 30)
     GUI.Show (backbutton)
     GUI.Hide (backbutton2)
     GUI.Show (nextbutton2)
     GUI.Hide (nextbutton)
+    GUI.Hide (nextbutton3)
+    GUI.Hide (backbutton3)
     GUI.Show (homebutton)
     GUI.Show (quitbutton)
     GUI.Hide (infobutton1)
@@ -89,10 +95,34 @@ end next
 
 procedure next2
     cls
+    var inp : int
+    var ctr : int := 0
+    var tmp : string
+    open : inp, "jobdes3.txt", get
+    put ""
+    put ""
+    put ""
+    put ""
+    put ""
+
+    loop
+        exit when eof (inp)
+        ctr += 1
+        if ctr = 28 or ctr = 31 or ctr = 55 or ctr = 59 or ctr = 69 or ctr = 80 or ctr = 90 then
+            put " "
+        end if
+        if ctr = 31 or ctr = 59 then
+            put " "
+        end if
+        get : inp, tmp
+        put tmp, " " ..
+    end loop
+
     GUI.SetPosition (quitbutton, 300, 30)
-    GUI.SetPosition (homebutton, 400, 30)
     GUI.Hide (backbutton)
     GUI.Show (backbutton2)
+    GUI.Show (nextbutton3)
+    GUI.Hide (backbutton3)
     GUI.Hide (nextbutton2)
     GUI.Hide (nextbutton)
     GUI.Show (homebutton)
@@ -103,7 +133,40 @@ procedure next2
     GUI.Hide (infobutton4)
     GUI.Hide (infobutton5)
     GUI.Refresh
+    font3 := Font.New ("serif:25")
+    Font.Draw ("Essential Tools", 120, 350, font3, black)
+    Font.Free (font3)
+
 end next2
+
+procedure next3
+    cls
+    var inp : int
+    var ctr : int := 0
+    var tmp : string
+    open : inp, "jobdes4.txt", get
+    loop
+        exit when eof (inp)
+        ctr += 1
+        get : inp, tmp
+        put tmp, " " ..
+    end loop
+    GUI.SetPosition (quitbutton, 300, 30)
+    GUI.Hide (backbutton)
+    GUI.Hide (backbutton2)
+    GUI.Hide (nextbutton3)
+    GUI.Show (backbutton3)
+    GUI.Hide (nextbutton2)
+    GUI.Hide (nextbutton)
+    GUI.Show (homebutton)
+    GUI.Show (quitbutton)
+    GUI.Hide (infobutton1)
+    GUI.Hide (infobutton2)
+    GUI.Hide (infobutton3)
+    GUI.Hide (infobutton4)
+    GUI.Hide (infobutton5)
+    GUI.Refresh
+end next3
 
 procedure B2
 
@@ -121,53 +184,60 @@ end B5
 procedure home
     cls
     GUI.SetPosition (quitbutton, 575, 365)
-    GUI.SetPosition (homebutton, 300, 365)
     GUI.Show (quitbutton)
     GUI.Show (infobutton1)
     GUI.Show (infobutton2)
     GUI.Show (infobutton3)
     GUI.Show (infobutton4)
     GUI.Show (infobutton5)
-    GUI.Show (homebutton)
+    GUI.Hide (homebutton)
     GUI.Hide (backbutton)
     GUI.Hide (nextbutton)
     GUI.Hide (backbutton2)
     GUI.Hide (nextbutton2)
+    GUI.Hide (backbutton3)
+    GUI.Hide (nextbutton3)
+    Pic.Draw (pic, -100, -100, picCopy)
+    GUI.Refresh
     font1 := Font.New ("serif:30")
     Font.Draw ("GRAPHICS DESGINER", 120, 300, font1, black)
     Font.Free (font1)
-    Pic.Draw (pic, -100, -100, picCopy)
-    GUI.Refresh
 end home
+
 quitbutton := GUI.CreateButton (575, 365, 50, "Quit", GUI.Quit)
 infobutton1 := GUI.CreateButton (50, 30, 80, "About", B1)
 infobutton2 := GUI.CreateButton (130, 30, 100, "Full Sail University", B2)
 infobutton3 := GUI.CreateButton (260, 30, 100, "Rasmussen College", B3)
 infobutton4 := GUI.CreateButton (390, 30, 140, "Conestoga College", B4)
 infobutton5 := GUI.CreateButton (530, 30, 80, "Sources", B5)
-homebutton := GUI.CreateButton (300, 365, 75, "Home", home)
+homebutton := GUI.CreateButton (400, 30, 75, "Home", home)
 nextbutton := GUI.CreateButton (100, 30, 80, "Next", next)
 nextbutton2 := GUI.CreateButton (200, 30, 80, "Next", next2)
 backbutton := GUI.CreateButton (100, 30, 80, "Back", B1)
 backbutton2 := GUI.CreateButton (100, 30, 80, "Back", next)
+nextbutton3 := GUI.CreateButton (200, 30, 80, "Next", next3)
+backbutton3 := GUI.CreateButton (100, 30, 80, "Back", next2)
 GUI.Hide (nextbutton)
 GUI.Hide (backbutton)
 GUI.Hide (nextbutton2)
 GUI.Hide (backbutton2)
+GUI.Hide (nextbutton3)
+GUI.Hide (backbutton3)
 GUI.Show (quitbutton)
 GUI.Show (infobutton1)
 GUI.Show (infobutton2)
 GUI.Show (infobutton3)
 GUI.Show (infobutton4)
 GUI.Show (infobutton5)
-GUI.Show (homebutton)
+GUI.Hide (homebutton)
+Pic.Draw (pic, -100, -100, picCopy)
+GUI.Refresh
 font1 := Font.New ("serif:30")
 Font.Draw ("GRAPHICS DESGINER", 120, 300, font1, black)
 Font.Free (font1)
-Pic.Draw (pic, -100, -100, picCopy)
-GUI.Refresh
 
 loop
     exit when GUI.ProcessEvent
 end loop
+
 
