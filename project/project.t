@@ -6,6 +6,8 @@ var font3 : int
 var font4 : int
 var font5 : int
 var font6 : int
+var font7 : int
+var font8 : int
 var quitbutton : int
 var homebutton : int
 var infobutton1 : int
@@ -201,6 +203,47 @@ procedure B2
 end B2
 
 procedure B3
+    cls
+    var inp : int
+    var ctr : int := 0
+    var tmp : string
+    open : inp, "seneca.txt", get
+    put ""
+    put ""
+    put ""
+    loop
+        exit when eof (inp)
+        ctr += 1
+        if ctr = 25 or ctr = 35 or ctr = 52 or ctr = 65 or ctr = 77 or ctr = 105 or ctr = 114 or ctr = 128 or ctr = 139 or ctr = 141 or ctr = 147 or ctr = 154 or ctr = 165 then
+            put " "
+        end if
+        if ctr = 139 then
+            put " "
+        end if
+        get : inp, tmp
+        put tmp, " " ..
+    end loop
+
+    GUI.SetPosition (quitbutton, 300, 30)
+    GUI.Hide (backbutton)
+    GUI.Hide (backbutton2)
+    GUI.Hide (nextbutton3)
+    GUI.Hide (backbutton3)
+    GUI.Hide (nextbutton2)
+    GUI.Hide (nextbutton)
+    GUI.Show (homebutton)
+    GUI.Show (quitbutton)
+    GUI.Hide (infobutton1)
+    GUI.Hide (infobutton2)
+    GUI.Hide (infobutton3)
+    GUI.Hide (infobutton4)
+    GUI.Hide (infobutton5)
+    GUI.Hide (backbuttonh1)
+    GUI.Hide (nextbuttonh1)
+    GUI.Refresh
+    font7 := Font.New ("serif:25")
+    Font.Draw ("Seneca College", 120, 360, font7, black)
+    Font.Free (font7)
 end B3
 
 procedure B4
@@ -209,9 +252,15 @@ procedure B4
     var ctr : int := 0
     var tmp : string
     open : inp, "herzing.txt", get
+    put ""
+    put ""
+    put ""
     loop
         exit when eof (inp)
         ctr += 1
+        if ctr = 25 or ctr = 56 or ctr = 66 or ctr = 77 or ctr = 88 or ctr = 99 or ctr = 111 or ctr = 138 or ctr = 170 then
+            put " "
+        end if
         get : inp, tmp
         put tmp, " " ..
     end loop
@@ -233,6 +282,9 @@ procedure B4
     GUI.Hide (backbuttonh1)
     GUI.Show (nextbuttonh1)
     GUI.Refresh
+    font8 := Font.New ("serif:25")
+    Font.Draw ("Herzing College", 120, 360, font8, black)
+    Font.Free (font8)
 end B4
 
 procedure nextH
