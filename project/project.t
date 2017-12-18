@@ -205,6 +205,17 @@ end B3
 
 procedure B4
     cls
+    var inp : int
+    var ctr : int := 0
+    var tmp : string
+    open : inp, "herzing.txt", get
+    loop
+        exit when eof (inp)
+        ctr += 1
+        get : inp, tmp
+        put tmp, " " ..
+    end loop
+
     GUI.SetPosition (quitbutton, 300, 30)
     GUI.Hide (backbutton)
     GUI.Hide (backbutton2)
@@ -226,6 +237,25 @@ end B4
 
 procedure nextH
     cls
+    var inp : int
+    var ctr : int := 0
+    var tmp : string
+    open : inp, "herzing2.txt", get
+    loop
+        exit when eof (inp)
+        ctr += 1
+        if ctr = 3 or ctr = 27 or ctr = 37 or ctr = 45 or ctr = 47 or ctr = 53 or ctr = 59 or ctr = 63 or ctr = 66 or ctr = 69 or ctr = 71 or ctr = 74 or ctr = 79 or ctr = 86 or ctr = 91 or ctr = 98
+                or
+                ctr = 102 then
+            put " "
+        end if
+        if ctr = 45 or ctr = 86 then
+            put " "
+        end if
+        get : inp, tmp
+        put tmp, " " ..
+    end loop
+
     GUI.SetPosition (quitbutton, 300, 30)
     GUI.Hide (backbutton)
     GUI.Hide (backbutton2)
@@ -349,5 +379,3 @@ Font.Free (font1)
 loop
     exit when GUI.ProcessEvent
 end loop
-
-
