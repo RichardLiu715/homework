@@ -1,5 +1,6 @@
 import GUI
 
+var Y_AXIS : int := 30
 var font1 : int
 var font2 : int
 var font3 : int
@@ -8,6 +9,7 @@ var font5 : int
 var font6 : int
 var font7 : int
 var font8 : int
+var font9 : int
 var quitbutton : int
 var homebutton : int
 var infobutton1 : int
@@ -199,7 +201,44 @@ procedure next3
 end next3
 
 procedure B2
+    cls
+    var inp : int
+    var ctr : int := 0
+    var tmp : string
+    open : inp, "fullsail.txt", get
+    put ""
+    put ""
+    loop
+        exit when eof (inp)
+        ctr += 1
+        if ctr = 18 or ctr = 29 or ctr = 41 or ctr = 53 or ctr = 65 or ctr = 78 or ctr = 86 or ctr = 90 or ctr = 92 or ctr = 100 or ctr = 105 or ctr = 111 or ctr = 116 or ctr = 118 or ctr = 122 or 
+            ctr = 127 or ctr = 130 then
+            put " "
+        end if
+        get : inp, tmp
+        put tmp, " " ..
+    end loop
 
+    GUI.SetPosition (quitbutton, 300, 30)
+    GUI.Hide (backbutton)
+    GUI.Hide (backbutton2)
+    GUI.Hide (nextbutton3)
+    GUI.Hide (backbutton3)
+    GUI.Hide (nextbutton2)
+    GUI.Hide (nextbutton)
+    GUI.Hide (backbuttonh1)
+    GUI.Hide (nextbuttonh1)
+    GUI.Show (homebutton)
+    GUI.Show (quitbutton)
+    GUI.Hide (infobutton1)
+    GUI.Hide (infobutton2)
+    GUI.Hide (infobutton3)
+    GUI.Hide (infobutton4)
+    GUI.Hide (infobutton5)
+    GUI.Refresh
+        font9 := Font.New ("serif:25")
+    Font.Draw ("Full Sail University", 120, 370, font9, black)
+    Font.Free (font9)
 end B2
 
 procedure B3
@@ -393,20 +432,20 @@ procedure home
 end home
 
 quitbutton := GUI.CreateButton (575, 365, 50, "Quit", GUI.Quit)
-infobutton1 := GUI.CreateButton (50, 30, 80, "About", B1)
-infobutton2 := GUI.CreateButton (130, 30, 100, "Full Sail University", B2)
-infobutton3 := GUI.CreateButton (260, 30, 130, "Seneca College", B3)
-infobutton4 := GUI.CreateButton (390, 30, 140, "Herzing College", B4)
-infobutton5 := GUI.CreateButton (530, 30, 80, "Sources", B5)
-homebutton := GUI.CreateButton (400, 30, 75, "Home", home)
-nextbutton := GUI.CreateButton (100, 30, 80, "Next", next)
-nextbutton2 := GUI.CreateButton (200, 30, 80, "Next", next2)
-backbutton := GUI.CreateButton (100, 30, 80, "Back", B1)
-backbutton2 := GUI.CreateButton (100, 30, 80, "Back", next)
-nextbutton3 := GUI.CreateButton (200, 30, 80, "Next", next3)
-backbutton3 := GUI.CreateButton (100, 30, 80, "Back", next2)
-nextbuttonh1 := GUI.CreateButton (200, 30, 80, "Next", nextH)
-backbuttonh1 := GUI.CreateButton (100, 30, 80, "Back", B4)
+infobutton1 := GUI.CreateButton (50, Y_AXIS, 80, "About", B1)
+infobutton2 := GUI.CreateButton (130, Y_AXIS, 100, "Full Sail University", B2)
+infobutton3 := GUI.CreateButton (260, Y_AXIS, 130, "Seneca College", B3)
+infobutton4 := GUI.CreateButton (390, Y_AXIS, 140, "Herzing College", B4)
+infobutton5 := GUI.CreateButton (530, Y_AXIS, 80, "Sources", B5)
+homebutton := GUI.CreateButton (400, Y_AXIS, 75, "Home", home)
+nextbutton := GUI.CreateButton (100, Y_AXIS, 80, "Next", next)
+nextbutton2 := GUI.CreateButton (200, Y_AXIS, 80, "Next", next2)
+backbutton := GUI.CreateButton (100, Y_AXIS, 80, "Back", B1)
+backbutton2 := GUI.CreateButton (100, Y_AXIS, 80, "Back", next)
+nextbutton3 := GUI.CreateButton (200, Y_AXIS, 80, "Next", next3)
+backbutton3 := GUI.CreateButton (100, Y_AXIS, 80, "Back", next2)
+nextbuttonh1 := GUI.CreateButton (200, Y_AXIS, 80, "Next", nextH)
+backbuttonh1 := GUI.CreateButton (100, Y_AXIS, 80, "Back", B4)
 GUI.Hide (nextbutton)
 GUI.Hide (backbutton)
 GUI.Hide (nextbutton2)
